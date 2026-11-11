@@ -81,3 +81,81 @@
 .lightbox button{position:absolute;border:1px solid #77786f;background:#252620;color:#f5f1e8;border-radius:50%;width:44px;height:44px;font-size:27px;cursor:pointer}
 .lightbox-close{right:25px;top:22px}.lightbox-prev{left:22px;top:50%;transform:translateY(-50%)}.lightbox-next{right:22px;top:50%;transform:translateY(-50%)}
 @media(max-width:760px){.intro-with-photo{grid-template-columns:1fr;gap:24px}.intro-photo-wrap{max-width:220px;min-height:250px}.intro-photo-wrap img{height:250px}.velina-grid{gap:9px;padding:8px}.velina-grid img{max-height:270px;padding:5px}.velina-grid .velina-main{max-height:540px}.project-card img{height:auto;max-height:520px;min-height:220px}.case-images figure{flex-basis:84%}.case-images img{height:300px}.velina-case figure{flex-basis:75%}.velina-case img{height:390px}.lightbox{padding:7vh 4vw}.lightbox figure{max-width:92vw}.lightbox figure img{max-height:76vh}.lightbox-prev{left:8px}.lightbox-next{right:8px}.lightbox button{width:36px;height:36px;font-size:22px}}
+
+/* Refinement v3 — portrait framing, Velina scale, and gallery spacing */
+.intro-photo-wrap{
+  width:min(100%,320px);
+  max-width:320px;
+  min-height:0;
+  height:auto;
+  padding:10px;
+  overflow:visible;
+  background:#e5dfd4;
+}
+.intro-photo-wrap img{
+  width:100%;
+  height:auto;
+  max-height:440px;
+  object-fit:contain;
+  object-position:center;
+  background:#e5dfd4;
+}
+.intro-photo-wrap span{display:none}
+/* The downward hero button was removed; keep the hero copy clean. */
+.circle-link{display:none}
+.hero-bottom{justify-content:flex-start}
+
+/* Three-piece Velina overview: give the invitation and social artwork more room. */
+.velina-grid{
+  grid-template-columns:.82fr 1.12fr 1.12fr;
+  grid-template-rows:1fr;
+  gap:clamp(12px,1.8vw,24px);
+  align-items:stretch;
+  padding:clamp(14px,2vw,26px);
+  background:#cfc2b0;
+}
+.velina-grid img,
+.velina-grid .velina-main{
+  grid-row:auto;
+  width:100%;
+  height:clamp(390px,43vw,590px);
+  max-height:590px;
+  object-fit:contain;
+  padding:12px;
+  background:#f7f2e9;
+  box-shadow:0 8px 24px #33291b18;
+}
+.velina-grid .velina-main{height:clamp(360px,39vw,530px);align-self:center}
+
+/* Case-study artwork becomes a spacious horizontal gallery. */
+.velina-case{
+  display:flex;
+  overflow-x:auto;
+  gap:clamp(16px,2vw,28px);
+  padding:12px 2px 24px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+  scrollbar-color:#aaa396 transparent;
+}
+.velina-case figure{
+  flex:0 0 88%;
+  min-width:0;
+  scroll-snap-align:start;
+}
+.velina-case img{
+  display:block;
+  width:100%;
+  height:clamp(480px,56vw,680px);
+  max-height:680px;
+  object-fit:contain;
+  padding:18px;
+  background:#f6f0e6;
+}
+@media(max-width:760px){
+  .intro-photo-wrap{width:min(100%,300px);max-width:300px;margin:0 auto}
+  .intro-photo-wrap img{max-height:440px}
+  .velina-grid{grid-template-columns:.82fr 1.12fr 1.12fr;grid-template-rows:1fr;gap:8px;padding:8px}
+  .velina-grid img,.velina-grid .velina-main{height:clamp(250px,70vw,390px);max-height:390px;padding:5px}
+  .velina-case figure{flex-basis:92%}
+  .velina-case img{height:clamp(390px,115vw,560px);padding:10px}
+}
